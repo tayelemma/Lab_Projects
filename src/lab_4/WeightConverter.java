@@ -1,20 +1,21 @@
 package lab_4;
 
 public class WeightConverter {
-    private double earthGravity;
 
+    private static double MOON_GRAVITY = 0.167;
+    private double weightOnEarth;
 
-    public static double convert(double originalWeight) {
-        double result = originalWeight * 0.167;
-        return result;
-
+    public WeightConverter(double weightOnEarth){
+        this.weightOnEarth = weightOnEarth;
     }
-public static void main(String[]args){
 
-        WeightConverter moonWeight=new WeightConverter();
+    public double convert() {
+        double result = weightOnEarth * MOON_GRAVITY;
+        return result;
+    }
 
-        double yourMoonWeight = moonWeight.convert(200);
-
-        System.out.println(yourMoonWeight);
+ public static void main(String[]args){
+        WeightConverter moonWeight=new WeightConverter(200);
+        System.out.println(moonWeight.convert());
 }
 }
